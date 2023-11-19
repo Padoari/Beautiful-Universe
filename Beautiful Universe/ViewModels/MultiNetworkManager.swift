@@ -47,6 +47,22 @@ class MultiNetworkManager: ObservableObject {
         
     }
     
+    func timeTravel() {
+        let TimeDate = Date.randomBetween(start: "1999-01-01", end: Date().dateString(),format: "yyyy-MM-dd")
+        let url = URL(string: Constants.baseURL)!
+        let fullURL = url.withQuery(["api_key" : Constants.key, "date" : TimeDate])!
+        print(TimeDate)
+        print(fullURL)
+        
+        API.createPublisher(url: fullURL)
+                .receive(on: RunLoop.main)
+                .sink(receiveCompletion: { _ in }, receiveValue: { [weak self] photoInfo in
+                    self?.fetchImage(for: photoInfo)
+                    self?.infos.append(photoInfo) // Add the new PhotoInfo instance to the infos array.
+                })
+                .store(in: &subscriptions)
+    }
+    
     func getMoreData(for times: Int) {
         for _ in 0..<times {
             self.daysFromToday += 1
@@ -54,27 +70,23 @@ class MultiNetworkManager: ObservableObject {
     }
     
     func fetchImage(for photoInfo: PhotoInfo) {
-        //fetch image from photoInfo.url
-        //set image to photInfo.image
-        
         guard photoInfo.image == nil, let url = photoInfo.url else {
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             if let error = error {
                 print("fetch image error: \(error.localizedDescription)")
-            }else if let data = data, let image = UIImage(data: data),
-                let index = self.infos.firstIndex(where: { $0.id == photoInfo.id }) {
-                
+            } else if let data = data, let image = UIImage(data: data) {
                 DispatchQueue.main.async {
-                      self.infos[index].image = image
+                    if let index = self?.infos.firstIndex(where: { $0.id == photoInfo.id }) {
+                        self?.infos[index].image = image
+                    }
                 }
             }
-            
         }
         task.resume()
     }
+
     
 }

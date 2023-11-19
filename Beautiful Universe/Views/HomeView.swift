@@ -14,7 +14,7 @@ struct HomeView: View {
                 NavigationLink(destination: DailyView()) {
                     Text("오늘의 우주보기")
                 }
-                NavigationLink(destination: DailyView()) {
+                NavigationLink(destination: TimeTravelView()) {
                     Text("시간여행 우주보기")
                 }
             }

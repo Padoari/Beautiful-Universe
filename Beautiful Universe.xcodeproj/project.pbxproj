@@ -27,7 +27,7 @@
 		0A1521262AFF9D1000792422 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A15211D2AFF9D1000792422 /* Montserrat-Bold.ttf */; };
 		0A1521272AFF9D1000792422 /* Montserrat-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A15211E2AFF9D1000792422 /* Montserrat-ExtraLight.ttf */; };
 		0A1521282AFF9D1000792422 /* Montserrat-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A15211F2AFF9D1000792422 /* Montserrat-Thin.ttf */; };
-		13819EEF2B04DC01005E5D91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13819EEE2B04DC01005E5D91 /* Constants.swift */; };
+		0A78B7B62B0B39FD00CE174B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78B7B52B0B39FD00CE174B /* Constants.swift */; };
 		13819EF22B04DCE2005E5D91 /* ex+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13819EF12B04DCE2005E5D91 /* ex+Date.swift */; };
 		13819EF42B04DFCA005E5D91 /* TimeTravelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13819EF32B04DFCA005E5D91 /* TimeTravelView.swift */; };
 /* End PBXBuildFile section */
@@ -55,7 +55,7 @@
 		0A15211D2AFF9D1000792422 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
 		0A15211E2AFF9D1000792422 /* Montserrat-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraLight.ttf"; sourceTree = "<group>"; };
 		0A15211F2AFF9D1000792422 /* Montserrat-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Thin.ttf"; sourceTree = "<group>"; };
-		13819EEE2B04DC01005E5D91 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		0A78B7B52B0B39FD00CE174B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		13819EF12B04DCE2005E5D91 /* ex+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ex+Date.swift"; sourceTree = "<group>"; };
 		13819EF32B04DFCA005E5D91 /* TimeTravelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTravelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,8 +115,8 @@
 		0A1520D82AFF373200792422 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0A78B7B52B0B39FD00CE174B /* Constants.swift */,
 				0A1520E52AFF4E5100792422 /* PhotoInfo.swift */,
-				13819EEE2B04DC01005E5D91 /* Constants.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,13 +250,13 @@
 				0A1520DC2AFF37FA00792422 /* NetworkManager.swift in Sources */,
 				0A1520EE2AFF4FD600792422 /* HomeView.swift in Sources */,
 				0A1520E02AFF3B6C00792422 /* UrlHelper.swift in Sources */,
-				13819EEF2B04DC01005E5D91 /* Constants.swift in Sources */,
 				0A1520CD2AFF360E00792422 /* ContentView.swift in Sources */,
 				13819EF42B04DFCA005E5D91 /* TimeTravelView.swift in Sources */,
 				0A1520EA2AFF4F0D00792422 /* MultiNetworkManager.swift in Sources */,
 				0A1520CB2AFF360E00792422 /* Beautiful_UniverseApp.swift in Sources */,
 				0A1520E82AFF4E9500792422 /* API.swift in Sources */,
 				13819EF22B04DCE2005E5D91 /* ex+Date.swift in Sources */,
+				0A78B7B62B0B39FD00CE174B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

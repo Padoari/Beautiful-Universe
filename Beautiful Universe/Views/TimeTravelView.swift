@@ -1,20 +1,21 @@
 //
-//  DailyView.swift
+//  TimeTravelView.swift
 //  Beautiful Universe
 //
-//  Created by jeongyun on 11/11/23.
+//  Created by 김다빈 on 11/15/23.
 //
 
 import SwiftUI
 
-struct DailyView: View {
+struct TimeTravelView: View {
     
     @ObservedObject var manager = NetworkManager()
+    @ObservedObject var multiNetworkManger = MultiNetworkManager()
     
     var body: some View {
         if manager.image != nil {
             ZStack(alignment: .center) {
-                Image(uiImage: self.manager.image!)
+                Image(uiImage: self.multiNetworkManger.infos.last?.image ?? self.manager.image!)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: UIScreen.main.bounds.width,height: UIScreen.main.bounds.height)
@@ -27,17 +28,18 @@ struct DailyView: View {
                 }
                 
                 VStack(alignment:.center,spacing: 8.0) {
-                    Text(manager.photoInfo.date)
+                    Text(multiNetworkManger.infos.last?.date ?? manager.photoInfo.date)
                         .font(.custom("Montserrat-Medium", size: 14))
-                    Text(manager.photoInfo.title)
+                    Text(multiNetworkManger.infos.last?.title ?? manager.photoInfo.title)
                         .font(.custom("Montserrat-Bold", size: 30))
                         .fontWeight(.bold)
                         .multilineTextAlignment(.center)
                     
                     Spacer()
-                    
+
                     Button {
-                        
+                        multiNetworkManger.timeTravel()
+                        print("눌림")
                     } label: {
                         Text("우주여행")
                             .foregroundColor(.primary)
